@@ -1,0 +1,23 @@
+.about {
+  background-color: #fff7f0;
+  padding: 3rem 1.5rem;
+  border-radius: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  font-family: "Intel", sans-serif;
+  color: #5c3a2e;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #a0522d;
+}
+
+.p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-size: 1rem;
+}

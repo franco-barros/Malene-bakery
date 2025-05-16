@@ -1,0 +1,23 @@
+.servicesSection {
+  padding: 4rem 1rem;
+  background: #faf5f2;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #a0522d;
+}
+
+.servicesContainer {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .servicesContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

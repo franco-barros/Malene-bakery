@@ -1,0 +1,46 @@
+.team {
+  padding: 4rem 1rem;
+  background: #faf5f2;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #a0522d;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.photo {
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.role {
+  color: #777;
+  font-size: 0.95rem;
+}

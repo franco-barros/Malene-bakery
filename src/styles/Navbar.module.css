@@ -1,0 +1,101 @@
+.navbar {
+  position: fixed;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.scrolled {
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Menú de escritorio */
+.desktopMenu {
+  display: none;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .desktopMenu {
+    display: flex;
+  }
+  /* Oculta toggle y mobileMenu en desktop */
+  .toggleButton,
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+.link:hover {
+  color: #ff6b6b;
+}
+
+/* Botón toggle mobile */
+.toggleButton {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Menú móvil desplegable */
+.mobileMenu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 0 0 1.5rem 1.5rem;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.mobileMenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobileLink {
+  display: block;
+  padding: 0.75rem 0;
+  font-size: 1.1rem;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.mobileLink:hover {
+  color: #ff6b6b;
+}

@@ -1,0 +1,57 @@
+.features {
+  padding: 4rem 1rem;
+  background-color: #fff5f0;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #a0522d;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.iconWrapper {
+  margin-bottom: 1rem;
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: #ff6b6b;
+}
+
+.title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
