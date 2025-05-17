@@ -1,12 +1,8 @@
-const galleryImages: string[] = [
-  "/image/malene6.png",
-  "/image/malene9.png",
-  "/image/malene7.png",
-  "/image/malene2.png",
-  "/image/malene17.png",
-  "/image/malene15.png",
-  "/image/malene16.png",
-  "/image/malene14.png",
+const instagramPosts: string[] = [
+  "https://www.instagram.com/p/DHemwTFxZ3W/?igsh=MWdxajlibnN3M3IyOA==",
+  "https://www.instagram.com/p/DJDB0nztnFC/?igsh=Zm9jNDNnbzdqNHd0",
+  "https://www.instagram.com/p/DHWyXOERKFT/?igsh=MTI1MDY3Mm9zczh3dA==",
+  "https://www.instagram.com/p/DGY3iayRQv1/?igsh=MWR1YzFncnJpdGNyeQ==",
 ];
 
-export default galleryImages;
+export default instagramPosts;

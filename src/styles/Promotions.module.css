@@ -1,4 +1,3 @@
-/* src/styles/Promotions.module.css */
 .promotions {
   padding: 4rem 1rem;
   background: #fff;
@@ -37,6 +36,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .title {

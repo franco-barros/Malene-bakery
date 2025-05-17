@@ -1,11 +1,19 @@
 "use client";
 import React, { useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
-import Image from "next/image";
 import styles from "../../styles/gallery/GalleryCarousel.module.css";
 
 interface GalleryCarouselProps {
-  images: string[];
+  images: string[]; // Ahora son URLs de publicaciones
+}
+
+// ✅ Interfaz local para evitar `any`
+interface InstagramWindow extends Window {
+  instgrm?: {
+    Embeds: {
+      process: () => void;
+    };
+  };
 }
 
 const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
@@ -15,9 +23,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
   const speed = 50;
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const duplicatedImages = useMemo(() => {
-    return [...images, ...images];
-  }, [images]);
+  const duplicatedImages = useMemo(() => [...images, ...images], [images]);
 
   const startAnimation = useCallback(() => {
     if (carouselRef.current) {
@@ -81,6 +87,21 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
     };
   }, [controls, x, startAnimation]);
 
+  // ✅ Script de Instagram con typing seguro
+  useEffect(() => {
+    const scriptId = "instagram-embed";
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://www.instagram.com/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    } else {
+      const ig = (window as InstagramWindow).instgrm;
+      ig?.Embeds.process();
+    }
+  }, [duplicatedImages]);
+
   return (
     <div className={styles.carouselWrapper}>
       <motion.div
@@ -97,20 +118,25 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
         onMouseEnter={stopAnimation}
         onMouseLeave={resumeAnimation}
       >
-        {duplicatedImages.map((src, index) => (
+        {duplicatedImages.map((url, index) => (
           <motion.div
-            key={`${index}-${src}`}
+            key={`${index}-${url}`}
             className={styles.carouselItem}
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.3 }}
           >
-            <Image
-              src={src}
-              alt={`Gallery image ${index + 1}`}
-              width={300}
-              height={200}
-              className={styles.image}
-            />
+            <blockquote
+              className="instagram-media"
+              data-instgrm-permalink={url}
+              data-instgrm-version="14"
+              style={{
+                background: "#fff",
+                border: "none",
+                margin: "0 auto",
+                minWidth: "300px",
+                maxWidth: "320px",
+              }}
+            ></blockquote>
           </motion.div>
         ))}
       </motion.div>

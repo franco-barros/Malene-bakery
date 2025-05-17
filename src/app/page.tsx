@@ -11,6 +11,7 @@ import Team from "../components/team";
 import Pricing from "../components/pricing";
 import Testimonials from "../components/testimonials";
 import Promotions from "../components/promotions";
+import Location from "../components/location";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <Testimonials />
       <Courses />
       <Team />
+      <Location />
       <Service />
       <WhatsappButton phoneNumber="264587889872" />
     </>
