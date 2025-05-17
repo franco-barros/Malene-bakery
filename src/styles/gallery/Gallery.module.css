@@ -1,4 +1,4 @@
-.topDesserts {
+.gallery {
   padding: 4rem 1rem;
   background: #fff;
   text-align: center;
@@ -7,12 +7,12 @@
 .heading {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #a0522d;
+  color: #1c2a52;
 }
 
 .grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
   grid-template-columns: 1fr;
 }
 
@@ -24,25 +24,19 @@
 
 @media (min-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .card {
-  background: #faf5f2;
-  border-radius: 1rem;
+  position: relative;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .image {
   object-fit: cover;
-  width: 100%;
-  height: auto;
-}
-
-.name {
-  padding: 1rem;
-  font-size: 1.1rem;
-  color: #333;
+  border-radius: 1rem;
 }

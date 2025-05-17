@@ -1,23 +1,31 @@
 .about {
-  background-color: #fff7f0;
-  padding: 3rem 1.5rem;
-  border-radius: 1rem;
+  position: relative;
+  padding: 4rem 1rem;
+  background: #fff7f0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
   max-width: 800px;
   margin: 0 auto;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  font-family: "Intel", sans-serif;
-  color: #5c3a2e;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
 }
 
 .heading {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  text-align: center;
-  color: #a0522d;
+  color: #1c2a52; /* azul marino de la galleta */
 }
 
 .p {
   margin-bottom: 1rem;
-  line-height: 1.7;
-  font-size: 1rem;
+  line-height: 1.6;
+  color: #4b3e38;
 }

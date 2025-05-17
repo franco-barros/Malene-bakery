@@ -1,0 +1,20 @@
+.background {
+  position: absolute; /* Se mantiene para que solo afecte al contenedor padre */
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.icon {
+  position: absolute;
+  opacity: 0.5;
+}
+
+.cake {
+  color: #e64784; /* Rosa más fuerte */
+}
+
+.cookie {
+  color: #1c2a52; /* Azul marino */
+}

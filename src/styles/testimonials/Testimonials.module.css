@@ -1,0 +1,49 @@
+.testimonials {
+  padding: 4rem 1rem;
+  background: #ff6b6b;
+  text-align: center;
+  color: #1c2a52;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1c2a52;
+}
+
+.carousel {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 260px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.text {
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author {
+  font-weight: bold;
+  color: #fff;
+}
+
+.rating {
+  color: #ffbf00;
+}
