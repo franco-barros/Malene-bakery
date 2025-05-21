@@ -1,15 +1,17 @@
+// Hero.tsx
+
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaLeaf, FaCookieBite, FaShippingFast } from "react-icons/fa";
 import styles from "../../styles/Hero.module.css";
 
 export const Hero = () => {
   return (
     <section id="hero" className={styles.hero}>
-      {/* Imagen de fondo */}
       <div className={styles.backgroundImage}>
         <Image
-          src="/image/malene3.png" // asegurate de tener esta imagen en public/image/
+          src="/image/malene3.png"
           alt="Fondo de pastelería"
           fill
           priority
@@ -17,42 +19,48 @@ export const Hero = () => {
           className={styles.image}
         />
       </div>
-
-      {/* Superposición oscura */}
       <div className={styles.overlay}></div>
 
-      {/* Contenido del Hero */}
-      <div className={styles.content}>
-        <motion.h1
-          className={styles.heading}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
+      <motion.div
+        className={styles.content}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
+        <h1 className={styles.heading}>Malene Pastelería</h1>
+        <p className={styles.subheading}>
           Pastelería artesanal con sabor y tradición
-        </motion.h1>
-        <motion.p
-          className={styles.subheading}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+        </p>
+
+        <div className={styles.buttons}>
+          <a href="#pricing" className={`${styles.btn} ${styles.btnPink}`}>
+            Ver Pricing
+          </a>
+          <a href="#promotion" className={`${styles.btn} ${styles.btnBlue}`}>
+            Ver Promoción
+          </a>
+        </div>
+      </motion.div>
+
+      <div className={styles.floatingIcons}>
+        <div
+          className={`${styles.iconItem} ${styles.icon1} ${styles.iconBlue}`}
         >
-          Delicias frescas hechas con amor y los mejores ingredientes
-        </motion.p>
-        <motion.div
-          className={styles.description}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          <FaLeaf />
+          <span className={styles.iconLabel}>Natural</span>
+        </div>
+        <div
+          className={`${styles.iconItem} ${styles.icon2} ${styles.iconPink}`}
         >
-          <h2>Nuestra Pasión, tu Dulzura</h2>
-          <p>
-            En Malene Pastelería creamos productos únicos, desde tortas
-            personalizadas hasta galletas y postres tradicionales, con el toque
-            artesanal que nos distingue. Disfrutá del sabor auténtico en cada
-            bocado.
-          </p>
-        </motion.div>
+          <FaCookieBite />
+          <span className={styles.iconLabel}>Casero</span>
+        </div>
+        <div
+          className={`${styles.iconItem} ${styles.icon3} ${styles.iconBlue}`}
+        >
+          <FaShippingFast />
+          <span className={styles.iconLabel}>Envíos</span>
+        </div>
       </div>
     </section>
   );

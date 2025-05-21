@@ -5,11 +5,40 @@
 }
 
 .heading {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #1c2a52;
+  font-weight: 900;
+  font-style: italic;
+  text-shadow: 2px 2px 0 #ff6b6b, 4px 4px 6px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Nueva tarjeta para el Intro */
+.introCard {
+  background: white;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.introTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
   color: #1c2a52;
 }
 
+.introText {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Grid de features */
 .grid {
   display: grid;
   gap: 2rem;
@@ -25,7 +54,7 @@
 .card {
   background: white;
   padding: 2rem 1.5rem;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -36,18 +65,26 @@
 }
 
 .iconWrapper {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .icon {
   font-size: 2.5rem;
+}
+
+.iconPink {
+  color: #ff6b6b;
+}
+
+.iconBlue {
   color: #ff6b6b;
 }
 
 .title {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
-  color: #333;
+  color: #1c2a52;
+  font-weight: 700;
 }
 
 .description {
