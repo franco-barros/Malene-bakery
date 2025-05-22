@@ -1,0 +1,67 @@
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Nuevo: altura mínima para evitar saltos */
+  min-height: 420px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.photo {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #1c2a52;
+}
+
+.role {
+  font-size: 1rem;
+  color: #777;
+  margin: 0.25rem 0 0.5rem;
+}
+
+/* Contenedor de frase/descripcion */
+.text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #444;
+  margin-top: 0.5rem;
+
+  /* Nuevo: más espacio para 4 líneas aprox */
+  min-height: 5em;
+}
+
+/* Frase visible por defecto */
+.phrase {
+  display: block;
+}
+
+/* Descripción oculta por defecto */
+.description {
+  display: none;
+}
+
+/* Al hacer hover, intercambiamos */
+.card:hover .phrase {
+  display: none;
+}
+
+.card:hover .description {
+  display: block;
+}

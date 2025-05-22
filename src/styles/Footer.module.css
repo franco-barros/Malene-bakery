@@ -1,37 +1,96 @@
 .footer {
-  background-color: #f3f4f6; /* gris claro */
-  padding: 1.5rem;
+  padding: 2rem 1rem;
+  background: #1c2a52;
+  color: #fff;
   text-align: center;
-  font-size: 0.875rem;
-  color: #374151; /* texto gris oscuro */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  position: relative;
 }
 
-.iconContainer {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.iconLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e5e7eb; /* fondo claro */
-  border-radius: 9999px;
-  width: 40px;
-  height: 40px;
-  transition: background-color 0.3s ease;
-}
-
-.iconLink:hover {
-  background-color: #d1d5db; /* más oscuro al hover */
+.info {
+  margin-bottom: 1.5rem;
 }
 
 .text {
-  margin: 0;
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.icon {
+  color: #ff6b6b;
+}
+
+.iconContainer {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.iconLink {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.iconLink:hover {
+  transform: scale(1.2);
+}
+
+/* Contenedor horizontal con QR + Botón */
+.qrContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem auto 0;
+}
+
+/* Columna con imagen + texto debajo */
+.qrColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qrImage {
+  width: 120px;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.qrLabel {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #f3f4f6;
+  text-align: center;
+}
+
+/* Botón esférico */
+.backToTop {
+  width: 48px;
+  height: 48px;
+  background: #ff6b6b;
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.backToTop:hover {
+  background: #e05555;
+  transform: translateY(-2px);
 }

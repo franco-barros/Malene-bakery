@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "../../styles/Pricing.module.css";
 import pricingSections from "../../data/pricingData";
+import HoverSlider from "../hoverslider"; // Asegurate de importar desde donde esté ubicado
 
 const Pricing: React.FC = () => {
   return (
@@ -14,13 +15,22 @@ const Pricing: React.FC = () => {
           <div key={section.title} className={styles.card}>
             {section.image && (
               <div className={styles.imageWrapper}>
-                <Image
-                  src={section.image}
-                  alt={section.title}
-                  fill
-                  className={styles.image}
-                  sizes="(max-width: 768px) 100vw, 300px"
-                />
+                {Array.isArray(section.image) ? (
+                  <HoverSlider
+                    images={section.image}
+                    alt={section.title}
+                    width={300}
+                    height={300}
+                  />
+                ) : (
+                  <Image
+                    src={section.image}
+                    alt={section.title}
+                    fill
+                    className={styles.image}
+                    sizes="(max-width: 768px) 100vw, 300px"
+                  />
+                )}
               </div>
             )}
             <h3 className={styles.title}>{section.title}</h3>

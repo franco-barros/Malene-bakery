@@ -6,14 +6,14 @@ export interface Item {
 
 export interface Section {
   title: string;
-  image?: string;
+  image?: string | string[];
   items: Item[];
 }
 
 const pricingSections: Section[] = [
   {
     title: "Tortas de Cumpleaños",
-    image: "/image/malene.png",
+    image: ["/image/malene.png", "/image/malene2.png"],
     items: [
       {
         name: "Precio por kg",
@@ -25,7 +25,7 @@ const pricingSections: Section[] = [
   },
   {
     title: "Otras Tortas",
-    image: "/image/malene8.png",
+    image: ["/image/malene8.png", "/image/malene7.png"],
     items: [
       { name: "Pistacho", detail: "Ganache y frutas", price: "$ 25.000" },
       { name: "Carrot Cake", price: "$ 20.000" },

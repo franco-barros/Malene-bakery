@@ -34,7 +34,7 @@ export const Hero = () => {
 
         <div className={styles.buttons}>
           <a href="#pricing" className={`${styles.btn} ${styles.btnPink}`}>
-            Ver Pricing
+            Ver precios
           </a>
           <a href="#promotion" className={`${styles.btn} ${styles.btnBlue}`}>
             Ver Promoción

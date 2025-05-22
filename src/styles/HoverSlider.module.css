@@ -1,0 +1,14 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.4s ease-in-out;
+}

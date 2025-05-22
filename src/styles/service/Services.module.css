@@ -7,7 +7,14 @@
 .sectionTitle {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #1c2a52;
+  color: #fff; /* Texto blanco */
+  background-color: #1c2a52; /* Fondo azul oscuro */
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px; /* Rounded full */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+  text-shadow: 2px 2px 0 #ff6b6b,
+    /* Sombra sólida rosa */ 4px 4px 6px rgba(0, 0, 0, 0.5); /* Sombra difusa negra */
 }
 
 .servicesContainer {
