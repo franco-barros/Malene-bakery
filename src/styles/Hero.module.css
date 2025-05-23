@@ -22,6 +22,7 @@
 .image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .overlay {
@@ -40,11 +41,10 @@
   color: white;
   max-width: 800px;
   text-align: center;
-  margin-bottom: 0.1rem; /* reducido para bajar el bloque */
+  margin-bottom: 0.1rem;
   padding: 1rem;
 }
 
-/* Título */
 .heading {
   color: #ffffff;
   font-size: clamp(2.5rem, 6vw, 4rem);
@@ -55,7 +55,6 @@
   font-style: italic;
 }
 
-/* Subtítulo */
 .subheading {
   font-size: clamp(1rem, 3vw, 1.5rem);
   color: #f3f4f6;
@@ -63,7 +62,6 @@
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Botones */
 .buttons {
   display: flex;
   gap: 1rem;
@@ -151,7 +149,6 @@
   color: #ff6b6b;
 }
 
-/* Volvemos a la alineación a la derecha */
 .icon1 {
   top: 15%;
   right: 5%;
@@ -196,28 +193,45 @@
   .hero {
     padding: 1rem;
     align-items: center;
+    height: auto;
   }
+
   .heading {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
+
   .subheading {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
+
   .floatingIcons {
+    position: relative;
     width: 100%;
     height: auto;
     top: auto;
-    bottom: 2rem;
+    right: auto;
+    bottom: auto;
     display: flex;
     justify-content: center;
     gap: 0.75rem;
-    pointer-events: none;
     flex-wrap: wrap;
+    margin-top: 2rem;
+    pointer-events: none;
   }
+
   .iconItem {
     position: relative;
     animation: none;
     padding: 0.5rem 0.8rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    flex: 1 0 auto;
+  }
+
+  .icon1,
+  .icon2,
+  .icon3 {
+    top: auto;
+    right: auto;
   }
 }

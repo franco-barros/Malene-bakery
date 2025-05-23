@@ -7,12 +7,29 @@
 .heading {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #fff; /* Texto blanco */
-  background-color: #1c2a52; /* Fondo azul oscuro */
+  color: #fff;
+  background-color: #1c2a52;
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  border-radius: 9999px; /* Rounded full */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
-  text-shadow: 2px 2px 0 #ff6b6b,
-    /* Sombra sólida rosa */ 4px 4px 6px rgba(0, 0, 0, 0.5); /* Sombra difusa negra */
+  border-radius: 9999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 0 #ff6b6b, 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive del padre */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .topDesserts {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.2rem;
+  }
 }

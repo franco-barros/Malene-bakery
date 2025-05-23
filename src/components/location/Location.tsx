@@ -16,7 +16,7 @@ const Location: React.FC = () => {
           width="100%"
           height="350"
           style={{ border: 0 }}
-          allowFullScreen
+          allowFullScreen={true}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
