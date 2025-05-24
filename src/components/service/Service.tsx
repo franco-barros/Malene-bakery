@@ -2,28 +2,8 @@
 import React from "react";
 import styles from "../../styles/service/Services.module.css";
 import ServiceCard from "./ServiceCard";
-
-// Datos de servicios para Malene Pastelería
-const servicesData = [
-  {
-    title: "Tortas Personalizadas",
-    description: "Diseñadas a tu medida para todo tipo de celebraciones.",
-    features: ["Diseños únicos", "Sabores a medida"],
-    cta: "Encargar ahora",
-  },
-  {
-    title: "Repostería Gourmet",
-    description: "Macarons, mini postres y galletas artesanales.",
-    features: ["Ingredientes premium", "Presentación elegante"],
-    cta: "Ver nuestros postres",
-  },
-  {
-    title: "Catering Dulce",
-    description: "Mesas de postres para eventos y reuniones especiales.",
-    features: ["Montaje profesional", "Variedad de opciones"],
-    cta: "Solicitar presupuesto",
-  },
-];
+import { servicesData } from "../../data/serviceData";
+import Background from "../backgroundabout";
 
 const Services: React.FC = () => {
   const handleScrollTo = (id: string) => {
@@ -37,9 +17,12 @@ const Services: React.FC = () => {
 
   return (
     <section id="services" className={styles.servicesSection}>
+      {/* Fondo animado */}
+      <Background />
+
       <h2 className={styles.sectionTitle}>Nuestros Servicios</h2>
       <div className={styles.servicesContainer}>
-        {servicesData.map((service) => {
+        {servicesData.map((service, index) => {
           let onClick: () => void = () => {};
 
           if (
@@ -53,7 +36,7 @@ const Services: React.FC = () => {
 
           return (
             <ServiceCard
-              key={service.title}
+              key={`${service.title}-${index}`}
               title={service.title}
               description={service.description}
               features={service.features}

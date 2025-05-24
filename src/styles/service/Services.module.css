@@ -1,23 +1,30 @@
 .servicesSection {
+  position: relative; /* Para posicionar el fondo animado */
   padding: 4rem 1rem;
   background: #faf5f2;
   text-align: center;
+  overflow: hidden; /* Evita scroll por los íconos animados */
+  z-index: 0;
 }
 
 .sectionTitle {
+  position: relative;
+  z-index: 10; /* Encima del fondo */
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #fff; /* Texto blanco */
-  background-color: #1c2a52; /* Fondo azul oscuro */
+  color: #fff;
+  background-color: #1c2a52;
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  border-radius: 9999px; /* Rounded full */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+  border-radius: 9999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-shadow: 2px 2px 0 #ff6b6b,
     /* Sombra sólida rosa */ 4px 4px 6px rgba(0, 0, 0, 0.5); /* Sombra difusa negra */
 }
 
 .servicesContainer {
+  position: relative;
+  z-index: 10; /* Asegura que las tarjetas estén sobre el fondo */
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr;

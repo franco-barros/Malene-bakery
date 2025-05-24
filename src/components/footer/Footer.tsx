@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import {
   FaInstagram,
   FaTiktok,
@@ -21,13 +20,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   };
 
   return (
-    <motion.footer
-      id="footer"
-      className={`${styles.footer} ${className || ""}`}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-    >
+    <footer id="footer" className={`${styles.footer} ${className || ""}`}>
       <div className={styles.info}>
         <p className={styles.text}>
           &copy; {new Date().getFullYear()} Malene Pastelería. Todos los
@@ -70,7 +63,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
       >
         <FaArrowUp />
       </button>
-    </motion.footer>
+    </footer>
   );
 };
 

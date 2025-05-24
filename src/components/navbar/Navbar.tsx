@@ -1,3 +1,4 @@
+// src/components/layout/Navbar.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -18,9 +19,9 @@ const Navbar: React.FC = () => {
     { href: "#about", label: "Nosotros" },
     { href: "#promotions", label: "Promos" },
     { href: "#courses", label: "Cursos" },
+    { href: "#services", label: "Servicio" },
     { href: "#location", label: "Ubicación" },
-    { href: "#service", label: "Servicio" },
-    { href: "#footer", label: "Contacto" },
+    { href: "#footer", label: "Contacto" }, // o puedes usar "#whatsapp" si tenés un id ahí
   ];
 
   const scrollToSection = (id: string) => {

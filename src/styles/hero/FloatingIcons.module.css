@@ -12,13 +12,19 @@
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
+  gap: 1rem; /* un poco más separación texto-ícono */
+  padding: 1rem 1.5rem; /* más padding */
   border-radius: 9999px;
   font-weight: bold;
+  font-size: 1.25rem; /* más grande */
   color: #fff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  animation: float 6s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
+}
+
+.iconItem svg {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .label {
@@ -40,25 +46,30 @@
 .icon1 {
   top: 15%;
   right: 5%;
+  animation-delay: 0s;
 }
 
 .icon2 {
   top: 40%;
   right: 10%;
+  animation-delay: 0.5s;
 }
 
 .icon3 {
   top: 65%;
   right: 7%;
+  animation-delay: 1s;
 }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
+  0% {
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
@@ -76,11 +87,16 @@
 
   .iconItem {
     position: relative;
-    animation: none;
     padding: 0.5rem 0.8rem;
     font-size: 1.1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     flex: 1 0 auto;
+    animation: none; /* Desactiva animaciones en mobile */
+  }
+
+  .iconItem svg {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 
   .icon1,

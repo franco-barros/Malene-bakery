@@ -1,22 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+
 import Image from "next/image";
 import FloatingIcons from "../floatingicons";
+import { motion } from "framer-motion";
 import styles from "../../styles/hero/Hero.module.css";
 
 const Hero: React.FC = () => {
-  useEffect(() => {
-    const originalStyle = window.getComputedStyle(document.body).overflow;
-    document.body.style.overflow = "hidden";
-
-    const timeout = setTimeout(() => {
-      document.body.style.overflow = originalStyle;
-    }, 2500); // 🕒 Tiempo que bloquea el scroll
-
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.backgroundImage}>
@@ -24,6 +13,7 @@ const Hero: React.FC = () => {
           src="/image/malene3.png"
           alt="Fondo de pastelería"
           fill
+          sizes="100vw"
           priority
           quality={100}
           className={styles.image}
@@ -34,27 +24,63 @@ const Hero: React.FC = () => {
 
       <motion.div
         className={styles.content}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: { transition: { staggerChildren: 0.2 } },
+          hidden: {},
+        }}
       >
-        <h1 className={styles.heading}>Malene Pastelería</h1>
-        <p className={styles.subheading}>
+        <motion.h1
+          className={styles.heading}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Malene Pastelería
+        </motion.h1>
+
+        <motion.p
+          className={styles.subheading}
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
           Pastelería artesanal con sabor y tradición
-        </p>
-        <div className={styles.buttons}>
+        </motion.p>
+
+        <motion.div
+          className={styles.buttons}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+        >
           <a href="#pricing" className={`${styles.btn} ${styles.btnPink}`}>
             Ver precios
           </a>
           <a href="#promotion" className={`${styles.btn} ${styles.btnBlue}`}>
             Ver promoción
           </a>
+        </motion.div>
+
+        {/* Aquí los íconos en mobile, debajo de los botones */}
+        <div className={styles.mobileIconsWrapper}>
+          <FloatingIcons />
         </div>
       </motion.div>
 
-      <FloatingIcons />
+      {/* Íconos flotantes solo en desktop */}
+      <div className={styles.floatingIconsWrapper}>
+        <FloatingIcons />
+      </div>
     </section>
   );
 };
 
-export default React.memo(Hero);
+export default Hero;
