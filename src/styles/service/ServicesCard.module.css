@@ -30,6 +30,8 @@
   display: flex;
   align-items: center;
   margin: 0.25rem 0;
+  color: #000 !important;
+  -webkit-text-fill-color: #000; /* Safari compatibility */
 }
 
 .checkIcon {
