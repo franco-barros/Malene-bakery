@@ -1,0 +1,115 @@
+/* Contenedor full-screen */
+.menuOverlayContainer {
+  position: fixed;
+  inset: 0;
+  background-color: #ff6b6b;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Botón de cierre fijo */
+.closeButton {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Menú animado */
+.animatedMenu {
+  width: 100%;
+  max-width: 500px;
+  background: transparent;
+  border-radius: 20px;
+  padding: 2rem;
+  color: white;
+}
+
+/* Keyframes para entrada y salida */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutScale {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Dispara entrada */
+.open {
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+/* Dispara salida */
+.closing {
+  animation: fadeOutScale 0.5s ease forwards;
+}
+
+/* Lista de items */
+.menuItemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Botones */
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e90ff; /* Azul por defecto */
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+/* Hover: texto blanco */
+.menuItem:hover {
+  color: white;
+}
+
+/* Item activo: texto blanco, más grande */
+.activeItem {
+  color: white;
+  font-size: 1.6rem;
+}
+
+/* Icono cookie: siempre ocupa espacio */
+.cookie {
+  display: inline-block;
+  visibility: hidden; /* oculto por defecto */
+  width: 1.4em;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+/* Cookie visible sólo en activo */
+.cookieVisible {
+  visibility: visible;
+}

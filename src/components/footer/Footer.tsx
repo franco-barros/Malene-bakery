@@ -1,7 +1,6 @@
 "use client";
-import Image from "next/image";
+import React from "react";
 import { motion } from "framer-motion";
-import styles from "../../styles/Footer.module.css";
 import {
   FaInstagram,
   FaTiktok,
@@ -9,6 +8,7 @@ import {
   FaMapMarkerAlt,
   FaArrowUp,
 } from "react-icons/fa";
+import styles from "../../styles/Footer.module.css";
 
 interface FooterProps {
   className?: string;
@@ -63,26 +63,13 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         </a>
       </div>
 
-      <div className={styles.qrContainer}>
-        <div className={styles.qrColumn}>
-          <Image
-            src="/image/maleneinstagram.png"
-            alt="QR Instagram"
-            width={120}
-            height={120}
-            className={styles.qrImage}
-          />
-          <p className={styles.qrLabel}>Síguenos en Instagram</p>
-        </div>
-
-        <button
-          onClick={handleScrollTop}
-          className={styles.backToTop}
-          aria-label="Volver arriba"
-        >
-          <FaArrowUp />
-        </button>
-      </div>
+      <button
+        onClick={handleScrollTop}
+        className={styles.backToTop}
+        aria-label="Volver arriba"
+      >
+        <FaArrowUp />
+      </button>
     </motion.footer>
   );
 };

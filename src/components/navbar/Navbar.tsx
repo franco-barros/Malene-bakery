@@ -2,95 +2,104 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../../styles/Navbar.module.css";
-
-const MOBILE_BREAKPOINT = 768;
+import AnimatedMenuOverlay from "../animatedmenuoverlay";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-  // Detectar scroll
+  const navLinks = [
+    { href: "#hero", label: "Inicio" },
+    { href: "#pricing", label: "Precios" },
+    { href: "#top-desserts", label: "Más vendidos" },
+    { href: "#about", label: "Nosotros" },
+    { href: "#promotions", label: "Promos" },
+    { href: "#courses", label: "Cursos" },
+    { href: "#location", label: "Ubicación" },
+    { href: "#service", label: "Servicio" },
+    { href: "#footer", label: "Contacto" },
+  ];
+
+  const scrollToSection = (id: string) => {
+    const element = document.querySelector(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      let currentSection = "";
+      for (const { href } of navLinks) {
+        const section = document.querySelector(href);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom >= 80) {
+            currentSection = href;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Detectar mobile vs desktop
-  useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  // Bloquear scroll body cuando el menú está abierto
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
   }, [isOpen]);
 
-  const navLinks = [
-    { href: "#hero", label: "Inicio" },
-    { href: "#about", label: "Acerca de" },
-    { href: "#footer", label: "Contacto" },
-  ];
-
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.innerContainer}>
-        {/* Logo */}
-        <Link
-          href="#hero"
-          className={styles.logo}
-          onClick={() => setIsOpen(false)}
-        >
-          Malene Pastelería
-        </Link>
+    <>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
+        <div className={styles.innerContainer}>
+          <Link
+            href="#hero"
+            className={styles.logo}
+            onClick={() => {
+              scrollToSection("#hero");
+              setIsOpen(false);
+            }}
+          >
+            <Image
+              src="/image/malene1.png"
+              alt="Malene Logo"
+              width={40}
+              height={40}
+              priority
+            />
+          </Link>
 
-        {/* Menú de escritorio */}
-        <ul className={styles.desktopMenu}>
-          {navLinks.map(({ href, label }) => (
-            <li key={href}>
-              <a href={href} className={styles.link}>
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Toggle sólo en móvil */}
-        {isMobile && (
           <button
             className={styles.toggleButton}
-            onClick={() => setIsOpen((prev) => !prev)}
-            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            onClick={() => setIsOpen(true)}
+            aria-label="Abrir menú"
           >
-            {isOpen ? "✖" : "☰"}
+            <span className={styles.hamburgerIcon}>☰</span>
+            <span className={styles.menuText}>Menú</span>
           </button>
-        )}
-      </div>
-
-      {/* Menú móvil */}
-      {isMobile && isOpen && (
-        <div className={styles.mobileMenu}>
-          <ul>
-            {navLinks.map(({ href, label }) => (
-              <li key={href}>
-                <a
-                  href={href}
-                  className={styles.mobileLink}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
+      </nav>
+
+      {isOpen && (
+        <AnimatedMenuOverlay
+          onClose={() => setIsOpen(false)}
+          scrollToSection={(id: string) => {
+            scrollToSection(id);
+            setIsOpen(false);
+          }}
+          navLinks={navLinks}
+          activeSection={activeSection}
+        />
       )}
-    </nav>
+    </>
   );
 };
 

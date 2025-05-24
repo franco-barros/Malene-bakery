@@ -1,12 +1,22 @@
-// Hero.tsx
-
 "use client";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaLeaf, FaCookieBite, FaShippingFast } from "react-icons/fa";
-import styles from "../../styles/Hero.module.css";
+import FloatingIcons from "../floatingicons";
+import styles from "../../styles/hero/Hero.module.css";
 
-export const Hero = () => {
+const Hero: React.FC = () => {
+  useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+
+    const timeout = setTimeout(() => {
+      document.body.style.overflow = originalStyle;
+    }, 2500); // 🕒 Tiempo que bloquea el scroll
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.backgroundImage}>
@@ -19,51 +29,32 @@ export const Hero = () => {
           className={styles.image}
         />
       </div>
-      <div className={styles.overlay}></div>
+
+      <div className={styles.overlay} />
 
       <motion.div
         className={styles.content}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <h1 className={styles.heading}>Malene Pastelería</h1>
         <p className={styles.subheading}>
           Pastelería artesanal con sabor y tradición
         </p>
-
         <div className={styles.buttons}>
           <a href="#pricing" className={`${styles.btn} ${styles.btnPink}`}>
             Ver precios
           </a>
           <a href="#promotion" className={`${styles.btn} ${styles.btnBlue}`}>
-            Ver Promoción
+            Ver promoción
           </a>
         </div>
       </motion.div>
 
-      <div className={styles.floatingIcons}>
-        <div
-          className={`${styles.iconItem} ${styles.icon1} ${styles.iconBlue}`}
-        >
-          <FaLeaf />
-          <span className={styles.iconLabel}>Natural</span>
-        </div>
-        <div
-          className={`${styles.iconItem} ${styles.icon2} ${styles.iconPink}`}
-        >
-          <FaCookieBite />
-          <span className={styles.iconLabel}>Casero</span>
-        </div>
-        <div
-          className={`${styles.iconItem} ${styles.icon3} ${styles.iconBlue}`}
-        >
-          <FaShippingFast />
-          <span className={styles.iconLabel}>Envíos</span>
-        </div>
-      </div>
+      <FloatingIcons />
     </section>
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

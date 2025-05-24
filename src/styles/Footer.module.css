@@ -45,37 +45,9 @@
   transform: scale(1.2);
 }
 
-/* Contenedor horizontal con QR + Botón */
-.qrContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1.5rem auto 0;
-}
-
-/* Columna con imagen + texto debajo */
-.qrColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.qrImage {
-  width: 120px;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.qrLabel {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  color: #f3f4f6;
-  text-align: center;
-}
-
-/* Botón esférico */
 .backToTop {
+  display: flex;
+  margin: 1.5rem auto 0; /* Centrado horizontal */
   width: 48px;
   height: 48px;
   background: #ff6b6b;
@@ -84,7 +56,6 @@
   border-radius: 50%;
   cursor: pointer;
   font-size: 1.25rem;
-  display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.3s ease, transform 0.3s ease;
